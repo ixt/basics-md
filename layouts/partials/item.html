@@ -1,0 +1,60 @@
+    <li>
+      <div class="row" id="posts">
+        <div class="post">
+          <a href="{{ .URL }}">
+              <section class="post-head"> 
+              {{ with .Params.icon }}
+              <section class="icon-container"> {{ if (fileExists .) }}<img src="{{.}}" class="icon" alt="{{ $.Params.Title }} icon"></img>{{ else }} <img src="{{ "assets/defaultIcon.png" | absURL }}" class="small-icon" alt="{{ $.Params.Title }} icon"></img>{{ end }}</section>
+                  {{ end }}
+
+                  {{ with .Params.category }} <section class="category"> {{. | lower | humanize}}</section> {{ end }} 
+                  <section class="title"> {{ .Title }} </section>
+              </section>
+              </br>
+                  <section class="info"><table><tbody>
+                          {{ with .Params.permissionCount }}
+                            <tr>
+                                <td class="permissionsTotal"> {{ . }}</td>
+                                <td> permissionsTotal</td>
+                            </tr> 
+                          {{ end }}
+                          {{ with .Params.normalCount }}
+                          <tr>
+                              <td class="normal"> {{ . }}</td>
+                              <td> normal</td>
+                          </tr>
+                          {{ end }}
+                          {{ with .Params.dangerousCount }}
+                          <tr>
+                              <td class="dangerous"> {{ . }}</td>
+                              <td> dangerous</td>
+                          </tr>
+                          {{ end }}
+                          {{ with .Params.signatureCount }}
+                          <tr>
+                              <td class="signature"> {{ . }}</td>
+                              <td> signature</td>
+                          </tr>
+                          {{ end }}
+                          {{ with .Params.unknownCount }}
+                          <tr>
+                              <td class="unknown"> {{ . }}</td>
+                              <td > unknown</td>
+                          </tr>
+                          {{ end }} 
+                          {{ with .Params.trackerCount }}
+                          <tr>
+                              <td class="trackersTotal"> {{ . }}</td>
+                              <td> trackersTotal</td>
+                          </tr>
+                          {{ end }}
+                          </tbody></table></section>
+            <!-- {{ with .Params.appopCount }}       appop:{{ . }} {{ end }}
+            {{ with .Params.developmentCount }} development: {{ . }} {{ end }}
+            {{ with .Params.pre23Count }}       pre23: {{ . }} {{ end }}
+            {{ with .Params.preinstalledCount }} preinstalled: {{ . }} {{ end }}
+            {{ with .Params.instantCount }}     instant: {{ . }} {{ end }} -->
+          </a>
+        </div>
+      </div>
+    </li>

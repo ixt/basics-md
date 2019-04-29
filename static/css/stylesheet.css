@@ -1,20 +1,56 @@
 body {
-    font-family: 'Ubuntu', sans-serif;
-    margin: auto;
-    max-width: 50em;
+    font-family: sans-serif;
+    background-color: #eee;
+    max-width: 80em;
+    min-height: 100%;
+    margin: 1em auto;
 }
 
 #page-title {
     text-align: center;
 }
 
+
 #page-title h1 a {
     color: black;
     font-size: 2.7rem;
 }
+.post {
+    background-color: white;
+    margin: auto;
+    max-width: 50em;
+    min-width: 60em;
+    padding: 1em;
+    box-shadow: -5px 5px 0 #ddd;
+}
 
 .post a {
     color: black;
+}
+
+.row {
+    margin-bottom: 2em;
+}
+
+.dangerous { color: red; }
+.normal { color: orange; }
+.signature { color: yellow; }
+.unknown { color: gray; }
+
+.permission-link a {
+    text-decoration: none;
+    color: inherit;
+} 
+
+.search-bar {
+    position: absolute;
+    width: 16em;
+    right: 0;
+    margin: 0;
+}
+
+.navbar-nav {
+    width: 100%;
 }
 
 #author-name h6 a {
@@ -28,7 +64,7 @@ body {
 }
 
 .date-time-title {
-    font-family: 'Ubuntu Mono', monospace;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .blog-post-content {
@@ -38,6 +74,27 @@ body {
 
 .posts_listing li {
   list-style-type: none;
+}
+
+.title {
+  font-size: 1.7rem;
+}
+
+.category {
+  font-size: 0.8rem;
+  color: grey;
+}
+
+.post .icon {
+    float: left;
+    margin-right: 1em;
+}
+
+.info {
+    float: left;
+}
+.info td {
+    padding-left: 0.7em;
 }
 
 h1 {
@@ -65,7 +122,7 @@ h6  {
 }
 
 code {
-  font-family: 'Ubuntu Mono', monospace;
+  font-family: sans-serif;
   white-space: pre;
   overflow-x: auto;
 }
@@ -81,3 +138,14 @@ pre {
 footer  {
   text-align: center;
 }
+
+.small-icon {
+    width: 2em;
+    height: 2em;
+}
+
+.icon { 
+    width: 4em;
+    height: 4em;
+}
+

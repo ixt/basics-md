@@ -1,12 +1,9 @@
 {{ define "content" }}
 <section>
     <ul class="description">
-        {{.Content}}
-        </br>
-        Results found: {{ .Pages | len }}
+        {{ .Params.description }}
     </ul>
 </section>
-    {{- template "_internal/pagination.html" . -}}
 <section>
   <ul class="posts_listing">
     {{ range .Paginator.Pages }}
