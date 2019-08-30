@@ -15,6 +15,10 @@
     </head>
     <body>
       <div class="container-fluid">
+    <div class="header">
+        <section id="page-title">
+          <h1><a href="/">{{ .Site.Title | default "Basics"}}</a></h1>
+        </section>
         <nav class="navbar navbar-expand-md navbar-light">
 
           <!-- empty brandname ensures toggler is on the right; hack really -->
@@ -26,22 +30,24 @@
 
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-item nav-link {{ if eq .URL "/"}}active{{ end }}" href="/">Home</a>
-              <!-- <a class="nav-item nav-link {{ if eq .URL "/about/"}}active{{ end }}" href="/about/">About</a> -->
-              <!-- <a class="nav-item nav-link {{ if eq .URL "/search/"}}active{{ end }}" href="/search/">Search</a> -->
-              <a class="nav-item nav-link {{ if eq .URL "/trackers/"}}active{{ end }}" href="/trackers/">Trackers</a>
-              <a class="nav-item nav-link {{ if eq .URL "/permissions/"}}active{{ end }}" href="/permissions/">Permissions</a>
-              <a class="nav-item nav-link {{ if eq .URL "/categories/"}}active{{ end }}" href="/categories/">Categories</a>
               <form class="search-bar" id="search" method="GET" action="{{ "search" | absURL }}">
-              <input align="right" type="text" name="s" placeholder="Search..">
+              <input style="display:inline;" align="right" type="text" name="s" placeholder="Search for an app..">
+              <button style="display:inline;">SEARCH</button>
               </form>
+              <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                 <option value="">Select permission...</option>
+                 {{  range $.Site.Data.permissionsDatabase  }}
+                 <option value="/permissions/{{ .name }}">{{ .name }}</option>
+                 {{ end }}
+              </select>
+              <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                 <option value="">Select category...</option>
+                 {{ range $name, $taxonomy := .Site.Taxonomies.categories}}
+                 <option value="/categories/{{ $name }}">{{ $name }}</option>
+                 {{ end }}
+              </select>
             </div>
           </div>
         </nav>
+    </div>
 
-        <section id="page-title">
-          <h1><a href="/">{{ .Site.Title | default "Basics"}}</a></h1>
-          <span id="author-name">
-            <h6><a href="/about/">{{ .Site.Params.Author }}</a></h6>
-          </span>
-        </section>

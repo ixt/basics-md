@@ -4,51 +4,52 @@
           <a href="{{ .URL }}">
               <section class="post-head"> 
               {{ with .Params.icon }}
-              <section class="icon-container"> {{ if (fileExists .) }}<img src="{{.}}" class="icon" alt="{{ $.Params.Title }} icon"></img>{{ else }} <img src="{{ "assets/defaultIcon.png" | absURL }}" class="small-icon" alt="{{ $.Params.Title }} icon"></img>{{ end }}</section>
+              <section class="icon-container"> 
+                  {{ if (fileExists .) }}
+                  <img src="{{.}}" class="icon" alt="{{ $.Params.Title }} icon"></img>
+                  {{ else }} 
+                  <img src="{{ "assets/defaultIcon.png" | absURL }}" class="small-icon" alt="{{ $.Params.Title }} icon"></img>
                   {{ end }}
-
-                  {{ with .Params.category }} <section class="category"> {{. | lower | humanize}}</section> {{ end }} 
-                  <section class="title"> {{ .Title }} </section>
               </section>
-              </br>
-                  <section class="info"><table><tbody>
-                          {{ with .Params.permissionCount }}
-                            <tr>
-                                <td class="permissionsTotal"> {{ . }}</td>
-                                <td> permissionsTotal</td>
-                            </tr> 
-                          {{ end }}
-                          {{ with .Params.normalCount }}
-                          <tr>
-                              <td class="normal"> {{ . }}</td>
-                              <td> normal</td>
-                          </tr>
-                          {{ end }}
-                          {{ with .Params.dangerousCount }}
-                          <tr>
-                              <td class="dangerous"> {{ . }}</td>
-                              <td> dangerous</td>
-                          </tr>
-                          {{ end }}
-                          {{ with .Params.signatureCount }}
-                          <tr>
-                              <td class="signature"> {{ . }}</td>
-                              <td> signature</td>
-                          </tr>
-                          {{ end }}
-                          {{ with .Params.unknownCount }}
-                          <tr>
-                              <td class="unknown"> {{ . }}</td>
-                              <td > unknown</td>
-                          </tr>
-                          {{ end }} 
-                          {{ with .Params.trackerCount }}
-                          <tr>
-                              <td class="trackersTotal"> {{ . }}</td>
-                              <td> trackersTotal</td>
-                          </tr>
-                          {{ end }}
-                          </tbody></table></section>
+                  {{ end }}
+               <section class="title"> {{ .Title }} </section>
+              </section>
+              <section class="info">
+                  <table>
+                      <tbody>
+                      {{ with .Params.permissionCount }}
+                        <tr>
+                            <td> <div class="permissionsTitle"> {{ . }} </div> <div class="permissionsTitle">Permissions in total</div></td>
+                        </tr> 
+                      {{ end }}
+                      {{ with .Params.normalCount }}
+                      <tr>
+                          <td> <div class="normal permissionsTitle"> {{ . }}</div> <div class="permissionsTitle">considered normal</div></td>
+                      </tr>
+                      {{ end }}
+                      {{ with .Params.dangerousCount }}
+                      <tr>
+                          <td> <div class="dangerous permissionsTitle"> {{ . }}</div> <div class="permissionsTitle">considered dangerous</div></td>
+                      </tr>
+                      {{ end }}
+                      {{ with .Params.signatureCount }}
+                      <tr>
+                          <td> <div class="signature permissionsTitle"> {{ . }}</div> <div class="permissionsTitle">signature</div></td>
+                      </tr>
+                      {{ end }}
+                      {{ with .Params.unknownCount }}
+                      <tr>
+                          <td> <div class="unknown permissionsTitle"> {{ . }}</div> <div class="permissionsTitle">unknown</div></td>
+                      </tr>
+                      {{ end }} 
+                      {{ with .Params.trackerCount }}
+                      <tr>
+                          <td> <div class="trackerTotal permissionsTitle"> {{ . }}</div> <div class="permissionsTitle">Tracker in total</div></td>
+                      </tr>
+                      {{ end }}
+                      </tbody>
+                  </table>
+              </section>
             <!-- {{ with .Params.appopCount }}       appop:{{ . }} {{ end }}
             {{ with .Params.developmentCount }} development: {{ . }} {{ end }}
             {{ with .Params.pre23Count }}       pre23: {{ . }} {{ end }}

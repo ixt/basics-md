@@ -1,20 +1,34 @@
 body {
     font-family: sans-serif;
     background-color: #eee;
-    max-width: 80em;
     min-height: 100%;
-    margin: 1em auto;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+    font-weight: 600;
+    color: white;
 }
 
 #page-title {
-    text-align: center;
+    padding-bottom: 3em;
+    padding-top: 3em;
 }
 
 
 #page-title h1 a {
-    color: black;
+    font-weight: 600;
+    color: #fff;
     font-size: 2.7rem;
 }
+
+.post-head{
+    width: 50%;
+}
+
 .post {
     background-color: white;
     margin: auto;
@@ -29,9 +43,15 @@ body {
 }
 
 .row {
-    margin-bottom: 2em;
+    border-bottom: #aaa 1px solid;
+    width: fit-content ;
+    margin: auto;
 }
 
+.permissionsTitle{
+    display: inline;
+    font-weight: 400;
+}
 .dangerous { color: red; }
 .normal { color: orange; }
 .signature { color: yellow; }
@@ -43,14 +63,14 @@ body {
 } 
 
 .search-bar {
-    position: absolute;
     width: 16em;
-    right: 0;
-    margin: 0;
+    margin-left: auto;
 }
 
 .navbar-nav {
-    width: 100%;
+    max-width: 100%;
+    margin-left: -10px;
+    margin-right: -10px;
 }
 
 #author-name h6 a {
@@ -78,6 +98,7 @@ body {
 
 .title {
   font-size: 1.7rem;
+  float: left;
 }
 
 .category {
@@ -91,7 +112,7 @@ body {
 }
 
 .info {
-    float: left;
+    margin-left: 50%;
 }
 .info td {
     padding-left: 0.7em;
@@ -149,3 +170,14 @@ footer  {
     height: 4em;
 }
 
+.header {
+    background-color: #444;
+    width: 100%;
+    padding-left: 5em;
+    padding-bottom: 2em;
+}
+
+.container-fluid{
+    padding:0;
+    margin:0;
+}

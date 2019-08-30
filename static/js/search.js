@@ -6,10 +6,11 @@ var fuseOptions = {
   tokenize:true,
   location: 0,
   distance: 100,
-  maxPatternLength: 32,
+  maxPatternLength: 64,
   minMatchCharLength: 1,
   keys: [
-    {name:"title",weight:0.8}
+    {name:"title",weight:0.4},
+    {name:"icon",weight:0.4}
   ]
 };
 
@@ -56,9 +57,9 @@ function populateResults(result){
     var templateDefinition = $('#search-result-template').html();
     //replace values
     if(value.item.icon){
-    var output = render(templateDefinition,{icon:value.item.icon,key:key,title:value.item.title,link:value.item.permalink,tags:value.item.tags});
+    var output = render(templateDefinition,{icon:value.item.icon,key:key,title:value.item.title,link:value.item.permalink,tags:value.item.tags,unknownCount:value.item.unknownCount,permissionCount:value.item.permissionCount,dangerousCount:value.item.dangerousCount});
     } else {
-    var output = render(templateDefinition,{icon:icon,key:key,title:value.item.title,link:value.item.permalink,tags:value.item.tags});
+    var output = render(templateDefinition,{icon:icon,key:key,title:value.item.title,link:value.item.permalink,tags:value.item.tags,unknownCount:value.item.unknownCount,permissionCount:value.item.permissionCount,dangerousCount:value.item.dangerousCount});
     }
     $('#search-results').append(output);
 
