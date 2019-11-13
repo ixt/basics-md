@@ -4,6 +4,10 @@ body {
     min-height: 100%;
 }
 
+ul.pagination{
+    margin: 0 auto;
+    width: fit-content;
+}
 .navbar-light .navbar-nav .nav-link {
     color: white;
 }
@@ -13,11 +17,50 @@ body {
     color: white;
 }
 
-#page-title {
-    padding-bottom: 3em;
-    padding-top: 3em;
+.search-bar {
+    width: max-content;
+    margin-left: auto;
 }
 
+.navbar-nav {
+    max-width: 100%;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.navbar-item {
+    margin: 0.809em;
+    height: 8.1em;
+}
+.navbar-title {
+    color: #eee;
+    font-weight: bold;
+}
+.search-button {
+    background: black;
+    color: white;
+    border-color: #444;
+    font-size: 0.8em;
+    font-weight: bold;
+    display: inline;
+    vertical-align: middle;
+}
+.search-box {
+    height: 1.618em;
+}
+
+select {
+    max-width: 16em;
+    display: inline;
+    background-color: white;
+    border-color: white;
+    height: 1.618em;
+}
+
+#page-title {
+    padding-bottom: 1em;
+    padding-top: 3em;
+}
 
 #page-title h1 a {
     font-weight: 600;
@@ -46,11 +89,14 @@ body {
     border-bottom: #aaa 1px solid;
     width: fit-content ;
     margin: auto;
+    margin-bottom: 1em;
+    margin-top: 1em;
 }
 
 .permissionsTitle{
     display: inline;
     font-weight: 400;
+    margin: 1em;
 }
 .dangerous { color: red; }
 .normal { color: orange; }
@@ -61,17 +107,6 @@ body {
     text-decoration: none;
     color: inherit;
 } 
-
-.search-bar {
-    width: 16em;
-    margin-left: auto;
-}
-
-.navbar-nav {
-    max-width: 100%;
-    margin-left: -10px;
-    margin-right: -10px;
-}
 
 #author-name h6 a {
   color: black;
@@ -88,6 +123,8 @@ body {
 }
 
 .blog-post-content {
+    width: 81%;
+    margin: auto;
   padding-top: 1em;
   padding-bottom: 1em;
 }

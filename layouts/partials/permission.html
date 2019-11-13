@@ -1,0 +1,14 @@
+{{ if (index .context.Site.Data.permissionsDB .name) }}
+<div class="permission">
+    <div class="permissionsTitle">
+        <h3 class="permission-link {{ (index .context.Site.Data.permissionsDB .name).protectionLevel }}"> <a href="{{ path.Join "permissions/" (index .context.Site.Data.permissionsDB .name).name | absURL | lower }}"> {{ (index .context.Site.Data.permissionsDB .name).name }} </a></h3>
+        <b class="{{ (index .context.Site.Data.permissionsDB .name).protectionLevel }}">({{ (index .context.Site.Data.permissionsDB .name).protectionLevel }})</b>
+    </div>
+    <div class="permissionDesc">
+    {{ (index .context.Site.Data.permissionsDB .name).description }}</br>
+    {{ if (index .context.Site.Data.permissionsDB .name).permissionFlags }}
+        <b>{{ (index .context.Site.Data.permissionsDB .name).permissionFlags }}</b></br>
+    {{ end }}
+    </div>
+</div>
+{{ end }}

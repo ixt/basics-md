@@ -3,7 +3,7 @@
     <ul class="description">
         {{.Content}}
         </br>
-        Results found: {{ .Pages | len }}
+        Results: {{ .Pages | len }}
     </ul>
 </section>
     {{- template "_internal/pagination.html" . -}}

@@ -1,10 +1,28 @@
 {{ define "content" }}
 <div class="blog-post">
-  <h1>{{ .Title }}</h1>
-  <div class="blog-post-subheader">
-      <img src="{{ .Params.icon }}" style="small-icon" alt="{{ .Title }} icon"></img>
-  </div>
   <div class="blog-post-content">
+  <h1>{{ .Title }}</h1>
+  <h2>{{ .Params.categories }} </h2>
+
+  <h3><a name="trackers"> Trackers </a></h3>
+  {{ range $name := .Params.trackers }}
+    <div class="tracker"><a href="/trackers/{{ $name }}">{{ $name }}</a></div>
+  {{ end }}
+
+
+  <h3><a name="permissions"> Permissions </a></h3>
+  <b>Total permissions:</b> {{ .Params.permissioncount }} </br>
+  <b>Unknown permissions:</b> {{ .Params.unknowncount }} </br>
+  <b>Signature permissions:</b> {{ .Params.signaturecount }} </br>
+  <b>Permissions considered normal:</b> {{ .Params.normalcount }} </br>
+  <b>Permissions considered dangerous:</b> {{ .Params.dangerouscount }} </br>
+  {{ $context := . }}
+  {{ range $name := .Params.permissions }}
+  {{ partial "permission" (dict "context" $context "name" $name) }}
+  {{ end }}
+
+  {{ .Params.categories }}
+  {{ .Params.trackercount }}
     {{ .Content }}
   </div>
 </div>

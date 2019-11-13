@@ -57,9 +57,9 @@ function populateResults(result){
     var templateDefinition = $('#search-result-template').html();
     //replace values
     if(value.item.icon){
-    var output = render(templateDefinition,{icon:value.item.icon,key:key,title:value.item.title,link:value.item.permalink,tags:value.item.tags,unknownCount:value.item.unknownCount,permissionCount:value.item.permissionCount,dangerousCount:value.item.dangerousCount});
+    var output = render(templateDefinition,{icon:value.item.icon,key:key,title:value.item.title,link:value.item.permalink,tags:value.item.tags,unknownCount:value.item.unknownCount,permissionCount:value.item.permissionCount,dangerousCount:value.item.dangerousCount,category:value.item.category});
     } else {
-    var output = render(templateDefinition,{icon:icon,key:key,title:value.item.title,link:value.item.permalink,tags:value.item.tags,unknownCount:value.item.unknownCount,permissionCount:value.item.permissionCount,dangerousCount:value.item.dangerousCount});
+    var output = render(templateDefinition,{icon:icon,key:key,title:value.item.title,link:value.item.permalink,tags:value.item.tags,unknownCount:value.item.unknownCount,permissionCount:value.item.permissionCount,dangerousCount:value.item.dangerousCount,category:value.item.category});
     }
     $('#search-results').append(output);
 

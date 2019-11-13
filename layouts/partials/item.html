@@ -12,6 +12,8 @@
                   {{ end }}
               </section>
                   {{ end }}
+                  {{ $category := .Params.categories }}
+                  <section class="category"> {{ $category | lower | humanize }} </section>
                <section class="title"> {{ .Title }} </section>
               </section>
               <section class="info">

@@ -1,6 +1,6 @@
 {{- $.Scratch.Add "index" slice -}}
 {{- range .Site.RegularPages -}}
-    {{- $.Scratch.Add "index" (dict "title" .Title "icon" .Params.icon "tags" .Params.tags "permalink" .Permalink "permissionCount" .Params.permissionCount "dangerousCount" .Params.dangerousCount "unknownCount" .Params.unknownCount ) -}}
+    {{- $.Scratch.Add "index" (dict "title" .Title "icon" .Params.icon "tags" .Params.tags "permalink" .Permalink "permissionCount" .Params.permissionCount "dangerousCount" .Params.dangerousCount "unknownCount" .Params.unknownCount "category" .Params.categories ) -}}
 {{- end -}}
 {{- $.Scratch.Get "index" | jsonify -}}
 

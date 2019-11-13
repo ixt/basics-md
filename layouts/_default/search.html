@@ -23,14 +23,24 @@
 <script id="search-result-template" type="text/x-js-template">
     <li>
       <div class="row" id="summary-${key}">
-        <div class="d-none d-sm-block col-sm-3 date-time-title"></div>
-        <div class="col-sm date-time-title post">
+        <div class="post">
           <a href="${link}">
-            <img src="${icon}" class="small-icon" alt="${title} icon"></img>
-            ${title}
-            <div class="permissionsTotal" >${permissionCount} </div> Permissions Total
-            <div class="dangerous" > ${dangerousCount} </div> Dangerous Permissions
-           <div class="unknown" > ${unknownCount} </div> Unknown Permissions 
+             <section class="post-head"> 
+               <section class="icon-container"> 
+                 <img src="${icon}" class="small-icon" alt="${title} icon"></img>
+               </section>
+               <section class="category"> ${category} </section>
+             </section>
+             <section class="title"> ${title} </section>
+            <section class="info">
+              <table>
+                <tbody>
+                  <tr><td><div class="permissionsTotal permissionTitle" >${permissionCount} </div> Permissions Total</td></tr>
+                  <tr><td><div class="dangerous permissionTitle" > ${dangerousCount} </div> Dangerous Permissions </td> </tr>
+                  <tr><td><div class="unknown permissionTitle" > ${unknownCount} </div> Unknown Permissions </td> </tr>
+                </tbody>
+              </table>
+            </section>
           </a>
         </div>
       </div>

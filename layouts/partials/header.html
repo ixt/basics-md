@@ -30,22 +30,53 @@
 
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <form class="search-bar" id="search" method="GET" action="{{ "search" | absURL }}">
-              <input style="display:inline;" align="right" type="text" name="s" placeholder="Search for an app..">
-              <button style="display:inline;">SEARCH</button>
-              </form>
-              <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
-                 <option value="">Select permission...</option>
-                 {{  range $.Site.Data.permissionsDatabase  }}
-                 <option value="/permissions/{{ .name }}">{{ .name }}</option>
-                 {{ end }}
-              </select>
-              <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
-                 <option value="">Select category...</option>
-                 {{ range $name, $taxonomy := .Site.Taxonomies.categories}}
-                 <option value="/categories/{{ $name }}">{{ $name }}</option>
-                 {{ end }}
-              </select>
+              <div class="navbar-item">
+                  <div style="color:white;vertical-align:top;">Search for an app:</div>
+                  <div style="margin-top:5em;vertical-align:bottom;">
+                <form class="search-bar" id="search" method="GET" action="{{ "search" | absURL }}">
+                <input class="search-box" type="text" name="s" placeholder="Search for an app..">
+                <button class="search-button">SEARCH</button>
+                </div>
+                </form>
+              </div>
+              <div class="navbar-item">
+                  <div style="color:white;vertical-align:top;">or check which apps are using a specific permission:</div>
+                  <div style="margin-top:2em;vertical-align:bottom;">
+                  <div class="navbar-title">PERMISSIONS</div>
+                <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                   <option value="">all</option>
+                   {{ range $name, $taxonomy := .Site.Taxonomies.permissions }}
+                   {{ if in $name "android.permission." }}
+                     <option value="/permissions/{{ $name | lower }}">{{ $name }}</option>
+                   {{ end }}
+                   {{ end }}
+                </select>
+              </div>
+              </div>
+              <div class="navbar-item">
+                  <div style="color:white;vertical-align:top;">or check which apps are using a specific tracker:</div>
+                  <div style="margin-top:2em;vertical-align:bottom;">
+                  <div class="navbar-title">TRACKERS</div>
+                <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                   <option value="">all</option>
+                   {{ range $name, $taxonomy := .Site.Taxonomies.trackers}}
+                   <option value="/trackers/{{ $name }}">{{ $name | humanize }}</option>
+                   {{ end }}
+                </select>
+              </div>
+              </div>
+              <div class="navbar-item">
+                  <div style="color:white;vertical-align:top;">or filter by category to compare similar services:</div>
+                  <div style="margin-top:2em;vertical-align:bottom;">
+                  <div class="navbar-title">APP CATEGORY</div>
+                <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                   <option value="">all</option>
+                   {{ range $name, $taxonomy := .Site.Taxonomies.categories}}
+                   <option value="/categories/{{ $name }}">{{ $name | humanize }}</option>
+                   {{ end }}
+                </select>
+              </div>
+              </div>
             </div>
           </div>
         </nav>
