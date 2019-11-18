@@ -1,0 +1,4 @@
+{{ $name := .Get 0 }}
+<div class="tracker" >
+    <h3> <a href="{{ path.Join "trackers/" $name | absURL | lower }}"> {{ $name }} </a></h3>
+</div>
